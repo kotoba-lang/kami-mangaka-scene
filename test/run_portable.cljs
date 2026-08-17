@@ -1,0 +1,33 @@
+#!/usr/bin/env nbb
+;; The portable suite on nbb — no build step, no JVM.
+;;
+;; Until this file existed, every namespace below ran under
+;; `clojure -M:test` and nowhere else, so a defect in the ClojureScript
+;; half of a `.cljc` was invisible here. This project needs no classpath
+;; beyond its own source:
+;;
+;;   nbb --classpath src:test test/run_portable.cljs
+;;
+;; Every `deftest`-bearing portable namespace has to be named here AND in
+;; the `run-tests` call: requiring a test namespace registers its vars,
+;; only `run-tests` runs them, and a runner naming a subset prints the
+;; same `Ran N tests` shape as one naming all of them (ADR-2608170300).
+;; `scripts/verify-cljs-runner-completeness.cljs` checks this file
+;; against the tree.
+(require '[cljs.test :as t]
+         '[mangaka-scene.camera-test]
+         '[mangaka-scene.lexicon-quat-test]
+         '[mangaka-scene.p1-smoke-test]
+         '[mangaka-scene.pose-scene-test]
+         '[mangaka-scene.render-sim-test]
+         '[mangaka-scene.smoke-test])
+
+(defmethod t/report [:cljs.test/default :end-run-tests] [m]
+  (when-not (t/successful? m) (set! (.-exitCode js/process) 1)))
+
+(t/run-tests 'mangaka-scene.camera-test
+              'mangaka-scene.lexicon-quat-test
+              'mangaka-scene.p1-smoke-test
+              'mangaka-scene.pose-scene-test
+              'mangaka-scene.render-sim-test
+              'mangaka-scene.smoke-test)
