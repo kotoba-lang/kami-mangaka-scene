@@ -16,7 +16,7 @@
   bone identity here is the camelCase string directly — the same string the
   Rust `as_str()` call produced and the same string `BoneRotation.bone`
   round-trips as JSON-LD."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [mangaka-scene.pose :as pose]))
 
 ;; ── Euler(XYZ, degrees) -> Quat[x y z w] ────────────────────────────────
@@ -142,7 +142,7 @@
   "Resolve an ARKit-style expression preset name to an `Expression` tag.
   Unknown names fall back to `:neutral`."
   [name]
-  (case (str/lower-case (or name ""))
+  (case (str/lower (or name ""))
     ("happy" "joy" "smile") :happy
     ("angry" "rage") :angry
     ("sad" "sorrow" "grief") :sad
