@@ -67,7 +67,7 @@ enum; errors here are plain `{:type :message}` maps).
 ## Test
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
 
 20 tests / 86 assertions, 0 failures, 0 errors. Every original Rust
