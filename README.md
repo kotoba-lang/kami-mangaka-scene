@@ -29,7 +29,7 @@ for its portable content:
 | `mangaka-scene.render` | `render.rs` | `RenderPasses` (bitflags), `RenderOpts` (+ `Default`), `RenderResult` *shape* |
 | `mangaka-scene.scene` | `scene.rs` | `Transform`, `EnvironmentSpec`, `Anchor`, `MangakaScene` portable subset: `new`/`set-background`/`set-camera`/`add-light`/`character-ids`/`to-jsonld`/`from-jsonld`, plus a data-only character-record + pose-resolution helper |
 
-`src/mangaka_scene.cljc` is the root aggregator (mirrors `lib.rs`'s `pub use`
+`src/mangaka_scene.cljk` is the root aggregator (mirrors `lib.rs`'s `pub use`
 surface) plus a data-shaped `SceneError` (the original was a `thiserror`
 enum; errors here are plain `{:type :message}` maps).
 
@@ -72,7 +72,7 @@ clojure -M:test
 
 20 tests / 86 assertions, 0 failures, 0 errors. Every original Rust
 `#[test]` from `tests/p1_smoke.rs` is ported 1:1 in
-`test/mangaka_scene/p1_smoke_test.cljc`. `tests/p2_render.rs` (headless wgpu
+`test/mangaka_scene/p1_smoke_test.cljk`. `tests/p2_render.rs` (headless wgpu
 render smoke tests) exercises the native-only `renderer.rs` and is not
 portable — not ported. Additional CLJC-only tests cover the
 `camera`/`pose`/`render`/`sim`/`scene` modules' data shapes and the euler-quat
