@@ -6,7 +6,7 @@
   (load_character, pose, tick, settle) needed a synthetic GLB fixture in
   the original and are native-only here — not ported, see
   `mangaka-scene.scene` docstring."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [mangaka-scene.camera :as camera]
             [mangaka-scene.lexicon :as lexicon]
             [mangaka-scene.scene :as scene]))

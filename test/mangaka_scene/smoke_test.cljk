@@ -1,7 +1,7 @@
 (ns mangaka-scene.smoke-test
   "Namespace-loads smoke test — every ported namespace requires cleanly and
   the root aggregator's re-exports resolve."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [mangaka-scene :as ms]
             [mangaka-scene.camera :as camera]
             [mangaka-scene.pose :as pose]
