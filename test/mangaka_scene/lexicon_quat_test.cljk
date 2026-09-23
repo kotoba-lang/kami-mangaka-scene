@@ -2,7 +2,7 @@
   "Coverage for lexicon.rs's euler_quat helper (not directly public in the
   Rust source but exercised transitively by every pose_preset call — this
   verifies the portable XYZ-intrinsic Euler->quaternion math independently)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [mangaka-scene.lexicon :as lexicon]))
 
 (deftest euler-quat-zero-is-identity

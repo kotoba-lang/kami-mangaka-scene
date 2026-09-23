@@ -2,7 +2,7 @@
   "Additional coverage for camera.rs's Default + three_point_* factories
   (not covered by the ported p1_smoke tests, which only spot-check camera
   shot / light role/count)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [mangaka-scene.camera :as camera]))
 
 (deftest default-camera-spec-matches-rust-default

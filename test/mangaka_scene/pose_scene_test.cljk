@@ -2,7 +2,7 @@
   "Coverage for pose.rs's PoseSpec::rest and scene.rs's portable character
   record / pose resolution helpers (not present as standalone Rust #[test]s
   in p1_smoke.rs, which only exercises pose via the lexicon)."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [mangaka-scene.pose :as pose]
             [mangaka-scene.scene :as scene]))
 
